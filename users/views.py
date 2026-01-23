@@ -9,6 +9,7 @@ from .serilizers import RegisterSerializer
 from rest_framework.permissions import IsAuthenticated
 # Create your views here.
 from django.contrib.auth.models import User
+from .serilizers import UserSerializer
 
 class RegisterView(APIView):
     def post(self, request):
@@ -49,7 +50,34 @@ class LoginView(APIView):
         return Response({"token": token.key})
     
 
+
+
+
 class UserListAPIView(generics.ListAPIView):
     queryset = CustomUser.objects.all()
     serializer_class = RegisterSerializer
     permission_classes = [IsAuthenticated]
+
+
+class CreateUserAPIView(generics.CreateAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = RegisterSerializer
+    permission_classes = [IsAuthenticated]
+    
+class UpdateUserAPIView(generics.UpdateAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = RegisterSerializer
+    permission_classes = [IsAuthenticated]
+    lookup_field = 'pk'
+    
+class DeleteUserAPIView(generics.DestroyAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = RegisterSerializer
+    permission_classes = [IsAuthenticated]
+    lookup_field = 'pk'
+    
+class DetailUserAPIView(generics.RetrieveAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = RegisterSerializer
+    permission_classes = [IsAuthenticated]
+    lookup_field = 'pk'

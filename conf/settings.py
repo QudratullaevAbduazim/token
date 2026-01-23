@@ -102,6 +102,18 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# settings.py
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}
+
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
