@@ -53,31 +53,3 @@ class LoginView(APIView):
 
 
 
-class UserListAPIView(generics.ListAPIView):
-    queryset = CustomUser.objects.all()
-    serializer_class = RegisterSerializer
-    permission_classes = [IsAuthenticated]
-
-
-class CreateUserAPIView(generics.CreateAPIView):
-    queryset = CustomUser.objects.all()
-    serializer_class = RegisterSerializer
-    permission_classes = [IsAuthenticated]
-    
-class UpdateUserAPIView(generics.UpdateAPIView):
-    queryset = CustomUser.objects.all()
-    serializer_class = RegisterSerializer
-    permission_classes = [IsAuthenticated]
-    lookup_field = 'pk'
-    
-class DeleteUserAPIView(generics.DestroyAPIView):
-    queryset = CustomUser.objects.all()
-    serializer_class = RegisterSerializer
-    permission_classes = [IsAuthenticated]
-    lookup_field = 'pk'
-    
-class DetailUserAPIView(generics.RetrieveAPIView):
-    queryset = CustomUser.objects.all()
-    serializer_class = RegisterSerializer
-    permission_classes = [IsAuthenticated]
-    lookup_field = 'pk'
